@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
+
 import sqlite3
 
 app = Flask(__name__)
@@ -62,8 +63,6 @@ def add_server_route():
     add_server(nome, endereco_ip, sistema_operacional, especificacoes_hardware)
     
     return redirect(url_for('index'))
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)
