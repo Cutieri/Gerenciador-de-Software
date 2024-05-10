@@ -1,14 +1,23 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify
+from flask import Flask, render_template, request, redirect, url_for, jsonify, flash
+
+from validators.ipValidator import IpValidator
 
 import sqlite3
 
 app = Flask(__name__)
+app.secret_key = 'minha-chave-secreta'
 
 def connect_to_database():
     conn = sqlite3.connect('inventario.db')
     return conn
 
-def add_server(nome, endereco_ip, sistema_operacional=None, especificacoes_hardware=None):
+def add_server(nome, endereco_ip, sistema_operacional=None, especificacoes_hardware=None):   
+    try:
+        IpValidator(endereco_ip)
+    except Exception as exceptionInstance:
+        flash(f'Erro ao adicionar servidor: {exceptionInstance}', 'danger')
+        return False
+    
     conn = connect_to_database()
     cursor = conn.cursor()
     
@@ -21,6 +30,7 @@ def add_server(nome, endereco_ip, sistema_operacional=None, especificacoes_hardw
     conn.commit()
     
     conn.close()
+    return True
 
 
 def list_servers():
@@ -32,6 +42,12 @@ def list_servers():
     return servers
 
 def update_server(server_id, nome=None, endereco_ip=None, sistema_operacional=None, especificacoes_hardware=None):
+    if endereco_ip:
+        try:
+            IpValidator(endereco_ip)
+        except Exception as exceptionInstance:
+            flash(f'Erro ao atualizar o servidor {exceptionInstance}', 'danger')
+    
     conn = connect_to_database()
     cursor = conn.cursor()
 
@@ -58,6 +74,7 @@ def update_server(server_id, nome=None, endereco_ip=None, sistema_operacional=No
 
     conn.commit()
     conn.close()
+    return True
 
 def remove_server(server_id):
     conn = connect_to_database()
@@ -78,7 +95,8 @@ def add_server_route():
     sistema_operacional = request.form.get('sistema_operacional', None)
     especificacoes_hardware = request.form.get('especificacoes_hardware', None)
     
-    add_server(nome, endereco_ip, sistema_operacional, especificacoes_hardware)
+    if add_server(nome, endereco_ip, sistema_operacional, especificacoes_hardware):
+        flash("Servidor adicionado com sucesso!", "success")
     
     return redirect(url_for('index'))
 
@@ -86,6 +104,7 @@ def add_server_route():
 def remove_server_route():
     server_id = request.form.get('server_id')
     remove_server(server_id)
+    flash("Servidor removido com sucesso!", "sucess")
     return redirect(url_for('index'))
 
 @app.route('/update_server_form/<int:server_id>')
@@ -96,7 +115,6 @@ def update_server_form(server_id):
     server = cursor.fetchone()
     conn.close()
     
-    # Renderizar um formulário com os dados atuais do servidor
     return render_template('update_server.html', server=server)
 
 @app.route('/update_server', methods=['POST'])
@@ -107,8 +125,8 @@ def update_server_route():
     sistema_operacional = request.form.get('sistema_operacional')
     especificacoes_hardware = request.form.get('especificacoes_hardware')
 
-    # Chama a função 'update_server' com os valores do formulário e o ID do servidor
-    update_server(server_id, nome, endereco_ip, sistema_operacional, especificacoes_hardware)
+    if update_server(server_id, nome, endereco_ip, sistema_operacional, especificacoes_hardware):
+        flash("Servidor atualizado com sucesso!", "success")
 
     return redirect(url_for('index'))
 

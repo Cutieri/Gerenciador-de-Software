@@ -8,6 +8,18 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                <div>
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}    
+    
     <h1>Gerenciamento de Inventário de Servidores</h1>    
     <form action="/add_server" method="post">
         <label for="nome">Nome do Servidor:</label>
