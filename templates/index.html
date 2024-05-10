@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciamento de Inventário de Servidores</title>
     <link rel="stylesheet" href="/static/style.css">
@@ -24,6 +25,7 @@
         <input type="submit" value="Adicionar Servidor">
     </form>
 
+    <h2>Servidores</h2>
     <table>
         <tr>
             <th>Nome</th>
@@ -39,10 +41,22 @@
             <td>{{ server[3] }}</td>
             <td>{{ server[4] }}</td>
             <td class="btn-group">
+                <!-- Formulário de atualização -->
                 <form action="/update_server" method="post">
+                    <!-- Campo oculto com o ID do servidor -->
                     <input type="hidden" name="server_id" value="{{ server[0] }}">
+                    
+                    <!-- Campos de texto para atualizar o servidor -->
+                    <input type="text" name="nome" placeholder="Novo Nome" value="{{ server[1] }}">
+                    <input type="text" name="endereco_ip" placeholder="Novo Endereço IP" value="{{ server[2] }}">
+                    <input type="text" name="sistema_operacional" placeholder="Novo Sistema Operacional" value="{{ server[3] }}">
+                    <input type="text" name="especificacoes_hardware" placeholder="Novas Especificações de Hardware" value="{{ server[4] }}">
+                    
+                    <!-- Botão de atualizar -->
                     <button type="submit">Atualizar</button>
                 </form>
+                
+                <!-- Formulário de remoção -->
                 <form action="/remove_server" method="post">
                     <input type="hidden" name="server_id" value="{{ server[0] }}">
                     <button type="submit">Remover</button>
