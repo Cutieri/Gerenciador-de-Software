@@ -26,7 +26,7 @@ Para instalar o Gerenciador de Software, siga as etapas abaixo:
 3. Instale as dependências: `pip install -r requirements.txt`
 4. Execute o script de inicialização: `python init.py`
 
-#Metodologia Agil
+## Metodologia Agil
 
 Neste projeto, nós utilizamos a metodologia ágil chamada Design Thinking. A metodologia Design Thinking é um processo de desenvolvimento centrado no cliente que cria produtos desejáveis, lucrativos e sustentáveis ao longo de sua vida útil. Ela vai além da ênfase tradicional em recursos e funções de um produto proposto e se concentra em entender o problema a ser resolvido, o contexto em que a solução será usada e a evolução da solução.
 
