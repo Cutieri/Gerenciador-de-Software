@@ -19,3 +19,4 @@ Ferramentas Utilizadas:
 4. *Flask:* Um microframework web em Python para criar uma interface simples para o sistema de gerenciamento de servidores.
 5. *HTML/CSS:* Para criar uma interface básica de usuário para visualização e interação com o sistema.
 6. *Sistema de Controle de Versão (Git):* Para controle de versão do código-fonte.
+7. *Miro*: Organização e Aplicação de Design Thinking para realizar o projeto.
