@@ -1,1 +1,41 @@
-*Sistema de Gerenciamento de Inventário de Servidores:* Descrição: Desenvolva um sistema básico para gerenciar o inventário de servidores em uma empresa. O sistema permitirá que os administradores adicionem, removam e atualizem informações sobre os servidores da empresa, como nome, endereço IP, sistema operacional, especificações de hardware, etc. Funcionalidades do Sistema: 1. *Cadastro de Servidores:* Permita que os administradores cadastrem novos servidores no sistema, fornecendo informações como nome, endereço IP, sistema operacional, especificações de hardware, etc. 2. *Listagem de Servidores:* Os administradores podem visualizar uma lista de todos os servidores cadastrados no sistema, juntamente com suas informações. 3. *Atualização de Informações:* Permita que os administradores atualizem as informações de um servidor existente, se necessário. 4. *Remoção de Servidores:* Os administradores podem remover servidores que não são mais utilizados ou que foram desativados. 5. *Pesquisa de Servidores:* Implemente uma funcionalidade de pesquisa para permitir que os administradores encontrem rapidamente um servidor específico com base em critérios como nome, endereço IP, etc. Ferramentas Utilizadas: 1. *Python:* Para desenvolver a lógica de negócios e interagir com o banco de dados. 2. *SQL:* Para modelar e manipular os dados do inventário de servidores. 3. *SQLite:* Um banco de dados SQL leve e fácil de usar, que pode ser incorporado diretamente ao projeto Python. 4. *Flask:* Um microframework web em Python para criar uma interface simples para o sistema de gerenciamento de servidores. 5. *HTML/CSS:* Para criar uma interface básica de usuário para visualização e interação com o sistema. 6. *Sistema de Controle de Versão (Git):* Para controle de versão do código-fonte. 7. *Miro*: Organização e Aplicação de Design Thinking para realizar o projeto.
+Gerenciador de Software
+Bem-vindo(a) ao Gerenciador de Software! Este é um projeto simples, mas eficiente, desenvolvido para ajudar a organizar e controlar o ciclo de vida dos softwares em sua empresa ou em sua vida pessoal.
+
+Funcionalidades
+Catálogo de softwares: Gerencie seus softwares em um único local, com informações detalhadas sobre cada um deles.
+Controle de versões: Tenha um histórico completo das versões de cada software, facilitando a atualização e o downgrade, se necessário.
+Licenças: Tenha um controle rigoroso sobre as licenças de seus softwares, evitando problemas de compliance.
+Integração: Integre facilmente o Gerenciador de Software com outros sistemas utilizados em sua empresa.
+Ferramentas Utilizadas
+Python
+Flask
+SQLite
+Git
+Github
+Instalação
+Para instalar o Gerenciador de Software, siga as etapas abaixo:
+
+Clone o repositório: git clone https://github.com/Cutieri/Gerenciador-de-Software.git
+Acesse o diretório do projeto: cd Gerenciador-de-Software
+Instale as dependências: pip install -r requirements.txt
+Execute o script de inicialização: python init.py
+Uso
+Após a instalação, você poderá acessar o Gerenciador de Software através do seu navegador, no endereço http://localhost:5000.
+
+Contribuição
+Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+Licença
+Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para mais detalhes.
+
+Equipe
+Este projeto foi desenvolvido pela seguinte equipe:
+
+Guilherme Ferreira Cutieri - 2301592
+Matheus Scafuro de Andrade - 2301809
+Pedro Alencar Farrath - 2300266
+Gustavo Alencar Farrath - 2300493
+João Vyctor Oliveira Dias - 2301747
+João Pedro Reis - 2301591
+Victor Tavares Minuceli - 2301886
+Lucas figueiredo venturelli - 2300845
