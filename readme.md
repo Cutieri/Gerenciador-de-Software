@@ -51,7 +51,6 @@ Este projeto foi desenvolvido pela seguinte equipe:
 - Pedro Alencar Farrath - 2300266
 - Gustavo Alencar Farrath - 2300493
 - João Vyctor Oliveira Dias - 2301747
-- João Pedro Reis - 2301591
 - Victor Tavares Minuceli - 2301886
 - Lucas figueiredo venturelli - 2300845
 
